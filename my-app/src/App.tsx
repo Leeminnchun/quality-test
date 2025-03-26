@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import DoctorScreen from "./components/DoctorScreen";
+import doctorImg from "./image/doctorImg.png";
+import stethoscopeImg from "./image/stethoscopeImg.png";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DoctorScreen
+      picFirst={
+        <img
+          src={doctorImg}
+          alt="Doctor"
+          className="w-full h-full object-cover"
+        />
+      }
+      picSecond={
+        <img
+          src={stethoscopeImg}
+          alt="Stethoscope"
+          className="w-full h-full object-cover"
+        />
+      }
+    />
   );
 }
 
