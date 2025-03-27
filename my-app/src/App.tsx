@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import DoctorScreen from "./components/DoctorScreen";
-import doctorImg from "./image/doctorImg.png";
-import stethoscopeImg from "./image/stethoscopeImg.png";
+import doctorImg from "./common/image/doctorImg.png";
+import stethoscopeImg from "./common/image/stethoscopeImg.png";
 
 function App() {
   return (
