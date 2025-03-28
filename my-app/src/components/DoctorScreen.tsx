@@ -1,30 +1,39 @@
 import React, { ReactNode } from "react";
-import HexagonImage from "./HexagonImage";
 import HexagonCustomSvg from "../common/svg/HexagonCustomSvg";
 import HexagonCustom from "../common/hexagon/HexagonCustom";
+import HexagonFullBgSvg from "../common/svg/HexagonFullBgSvg";
+import HexagonImage from "../common/svg/HexagonImage";
 type DoctorScreenProps = {
-  picFirst: ReactNode;
-  picSecond: ReactNode;
+  picFirst: string;
+  picSecond: string;
 };
 const DoctorScreen: React.FC<DoctorScreenProps> = ({ picFirst, picSecond }) => {
   return (
     <>
       <div className="flex items-center relative  overflow-hidden bg-blue-500 text-white w-full h-[100px] min-h-[500px]">
         {/* Hexagon background layer */}
-        {/* <div className="absolute top-[calc(100vw/10)] w-screen h-[100vw] bg-[#0668A3] clip-hexagon-large  rounded-[15px] z-0"></div> */}
-        {/* <HexagonCustomSvg size={250} color="#032184" borderRadius={50} opacity={30} className='absolute top-[calc(100vw/10)] w-screen h-[100vw] z-0'/> */}
-        <HexagonCustom/>
+
+        {/* <div className="absolute top-[calc(100vw/10)] w-screen h-[100vw] bg-[#0668A3] clip-hexagon-large rounded-[15px] z-0"></div> */}
+ {/* <div className="hexagon-bg"></div> */}
+
+ {/* <HexagonCustomSvg imageUrl="https://via.placeholder.com/200" /> */}
+ <div className="absolute w-screen">
+ <HexagonFullBgSvg />
+ </div>
+
+
         {/* Layout maine */}
         <div className="flex flex-col lg:flex-row items-center lg:items-start z-40">
           {/* Layer picture */}
           <div className="w-full lg:w-1/2 h-[400px]">
-            <HexagonImage
-              image={picFirst}
-              className="left-0 top-0 sm:left-10 sm:top-10 z-50"
+            <HexagonCustomSvg
+              imageUrl={picFirst}
+              className="absolute left-0 top-0 sm:left-10 sm:top-10 z-50"
+              hasBorder
             />
-            <HexagonImage
-              image={picSecond}
-              className="left-10 top-28 sm:left-24 sm:top-40 z-0"
+            <HexagonCustomSvg
+              imageUrl={picSecond}
+              className="absolute left-10 top-28 sm:left-24 sm:top-40 z-0"
             />
           </div>
 

@@ -1,49 +1,36 @@
-import React from "react";
+import clsx from "clsx";
 
-const HexagonCustomSvg = ({
-  size = 200,
-  color = "blue",
-  borderRadius = 15,
-  opacity = 0,
-  className
-}:{
-  size?: number;
-  color?: string;
-  borderRadius?: number;
-  opacity?: number;
-  className?: string
-}) => {
-  const points = `
-    ${size * 0.5},0 
-    ${size},${size * 0.25} 
-    ${size},${size * 0.75} 
-    ${size * 0.5},${size} 
-    0,${size * 0.75} 
-    0,${size * 0.25}
-  `;
-
+const HexagonCustomSvg = ({ imageUrl, className, hasBorder }: { imageUrl?: string, className?: string, hasBorder?: boolean }) => {
   return (
-    <div className={className}>
-      <svg
-      width={size}
-      height={size}
-      viewBox={`0 0 ${size} ${size}`}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <clipPath id="hexagonClip">
-        <polygon points={points} rx={borderRadius} ry={borderRadius} />
+    <svg viewBox="0 0 100 100" className={clsx('hexagon-svg object-cover', className)}>
+    <defs>
+      <clipPath id="hexagon-clip" clipPathUnits="userSpaceOnUse">
+        {hasBorder && <path
+          d="M 50,2 L 94,25 L 94,75 L 50,98 L 6,75 L 6,25 Z"
+          stroke="white"
+          strokeWidth="1"
+          strokeLinejoin="round"
+          fill="none"
+        />}
       </clipPath>
-      <rect
-        width="100%"
-        height="100%"
-        fill={color}
-        clipPath="url(#hexagonClip)"
-        rx={borderRadius}
-        ry={borderRadius}
-        opacity={opacity}
-      />
-    </svg>
-    </div>
+    </defs>
+    <image
+      x="0"
+      y="0"
+      width="100"
+      height="100"
+      href={imageUrl}
+      clipPath="url(#hexagon-clip)"
+      className="object-cover"
+    />
+   {hasBorder && <path
+      d="M 50,2 L 94,25 L 94,75 L 50,98 L 6,75 L 6,25 Z"
+      stroke="white"
+      strokeWidth="1"
+      strokeLinejoin="round"
+      fill="none"
+    />}
+  </svg>
   );
 };
 
